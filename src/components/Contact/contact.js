@@ -11,9 +11,10 @@ const Contact = () => {
   const form = useRef()
 
     useEffect(() => {
-        return setTimeout(() => {
+        const sett = setInterval(() => {
           setLetterClass('text-animate-hover')
-        }, 3000)
+        }, 3000);
+        return () => clearInterval(sett);
       }, [])
 
       const sendEmail = (e) => {
@@ -37,6 +38,8 @@ const Contact = () => {
           )
       }
 
+      const position = [6.572, 3.396]
+
   return (
     <>
       <div className='container contact-page'>
@@ -48,8 +51,8 @@ const Contact = () => {
               idx={15}/>
             </h1>
             <p>
-            I am interested in freelance opportunities - especially ambitious or
-            large projects. However, if you have other request or question,
+            I am interested in full-time and contract opportunities - especially remotely with a diverse team or
+            an interesting projects. However, if you have other request or question,
             don't hesitate to contact me using below form either.
           </p>
           <div className="contact-form">
@@ -99,7 +102,7 @@ const Contact = () => {
           <span>harzeyzhrotimi@gmail.com </span>
         </div>
         <div className="map-wrap">
-        <MapContainer center={[6.572, 3.396]} zoom={13} scrollWheelZoom={false}>
+        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

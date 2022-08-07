@@ -16,10 +16,11 @@ const About = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
 
     useEffect(() => {
-        return setTimeout(() => {
-          setLetterClass('text-animate-hover')
-        }, 3000)
-      }, [])
+      const sett = setInterval(() => {
+        setLetterClass('text-animate-hover')
+      }, 3000);
+      return () => clearInterval(sett);
+    }, [])
 return (
     <>
     <div className='container about-page'>
@@ -32,18 +33,15 @@ return (
                 />
             </h1>
             <p>
-            I'm very ambitious front-end developer looking for a role in
-            established IT company with the opportunity to work with the latest
-            technologies on challenging and diverse projects.
+            I'm a results-driven Frontend Developer/Full-stack Developer with years of broad knowledge in React, Ruby, ROR, node and Progressive Web Applications areas with the willingness to constantly improve and solve problems as I go. A remote working enthusiast who enjoys working with new/emerging technologies, I’m always ready to master a new stack when necessary.
           </p>
           <p align='LEFT'>
             I'm quietly confident, naturally curious, and perpetually working on
             improving my chops one design problem at a time.
           </p>
           <p>
-            If I need to define myself in one sentence that would be a family
-            person, father of a beautiful daughter, a sports fanatic,
-            photography enthusiast, and tech-obsessed!!!
+            If I need to define myself in one sentence that would be a family person, father of an handsome baby boy, a sports fanatic,
+            like meeting new people and learning new things fro9m them, and tech-obsessed!!!
           </p>
         </div>
         <div className='stage-cube-cont'>

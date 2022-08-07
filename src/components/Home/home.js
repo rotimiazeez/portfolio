@@ -12,10 +12,11 @@ const Home = () => {
     const jobArray = ['w','e','b','', 'd','e','v','e','l','o','p','e','r', '.']
 
     useEffect(() => {
-        return setTimeout(() => {
-            setLetterClass('text-animate-hover')
-        }, 4000)
-    }, [])
+        const sett = setInterval(() => {
+          setLetterClass('text-animate-hover')
+        }, 3000);
+        return () => clearInterval(sett);
+      }, [])
 
     return (
         <>
